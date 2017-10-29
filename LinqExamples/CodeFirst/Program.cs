@@ -10,7 +10,16 @@ namespace CodeFirst
     {
         static void Main(string[] args)
         {
+            using (var db = new SchoolContext())
+            {
+                Student student = new Student()
+                {
+                    StudentName = "Goran"
+                };
 
+                db.Students.Add(student);
+                db.SaveChanges();
+            }
 
             Console.ReadLine();
         }
